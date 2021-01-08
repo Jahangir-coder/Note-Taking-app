@@ -26,13 +26,13 @@ class NoteListScreen extends StatelessWidget
             bottomRight: Radius.circular(75.0),
           ),
         ),
-        height: 150,
+        height: 155,
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'ANDROIDRIDE\'S',
+              'Flutter App\'S',
               style: headerRideStyle,
             ),
             Text(

@@ -128,7 +128,7 @@ class _NoteEditScreenState extends State {
                 maxLines: null,
                 style: createContent,
                 decoration: InputDecoration(
-                  hintText: 'Enter Something...',
+                  hintText: 'Enter Text',
                   border: InputBorder.none,
                 ),
               ),

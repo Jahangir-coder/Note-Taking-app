@@ -16,26 +16,26 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 135.0,
-      margin: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+      height: 138.0,
+      margin: EdgeInsets.symmetric(horizontal: 13.0, vertical: 9.0),
       child: InkWell(
         onTap: () {
           Navigator.pushNamed(context, NoteViewScreen.route, arguments: id);
         },
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          padding: EdgeInsets.symmetric(horizontal: 13.0),
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: shadow,
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(14.0),
             border: Border.all(color: grey, width: 1.0),
           ),
           child: Row(
             children: [
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  padding: EdgeInsets.symmetric(vertical: 12.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -45,14 +45,14 @@ class ListItem extends StatelessWidget {
                         maxLines: 2,
                         style: itemTitle,
                       ),
-                      SizedBox(height: 4.0),
+                      SizedBox(height: 5.0),
                       Text(
                         date,
                         overflow: TextOverflow.ellipsis,
                         style: itemDateStyle,
                       ),
                       SizedBox(
-                        height: 8.0,
+                        height: 9.0,
                       ),
                       Expanded(
                         child: Text(
@@ -70,13 +70,13 @@ class ListItem extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      width: 12.0,
+                      width: 13.0,
                     ),
                     Container(
-                      width: 80.0,
-                      height: 95.0,
+                      width: 83.0,
+                      height: 98.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(13.0),
                         image: DecorationImage(
                           image: FileImage(
                             File(imagePath),

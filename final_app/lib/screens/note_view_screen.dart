@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class NoteViewScreen extends StatefulWidget {
   static const route = '/note-view';
   @override
@@ -51,7 +52,7 @@ class _NoteViewScreenState extends State {
                   padding: const EdgeInsets.all(8.0),
                   child: Icon(
                     Icons.access_time,
-                    size: 18,
+                    size: 20,
                   ),
                 ),
                 Text('${selectedNote?.date}')
