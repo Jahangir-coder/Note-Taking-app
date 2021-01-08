@@ -10,6 +10,11 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Need to take Picture from Gallery</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Need to take Picture using Camera</string>
+
 	<key>CFBundleName</key>
 	<string>final_app</string>
 	<key>CFBundlePackageType</key>
