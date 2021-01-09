@@ -20,6 +20,7 @@ var headerNotesStyle = GoogleFonts.roboto(
     fontWeight: FontWeight.bold,
   ),
 );
+
 enum EditMode {
   ADD,
   UPDATE,
