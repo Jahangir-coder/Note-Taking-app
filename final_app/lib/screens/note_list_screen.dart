@@ -142,7 +142,6 @@ Widget noNotesUI(BuildContext contexr) {
 }; //ListView
 }
 
-
 Void goToNoteEditSceen(BuildContext context)
 {
   Navigator.of(context).pushNamed(NoteEditScreen.route);
