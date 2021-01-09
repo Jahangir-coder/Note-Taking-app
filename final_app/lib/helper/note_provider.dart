@@ -32,6 +32,7 @@ class NoteProvider with ChangeNotifier {
             {
               return header();
             }
+
             else
             {
               final i = index - 1;
