@@ -4,6 +4,7 @@ import 'package:flutter_notes/screens/note_edit_screen.dart';
 import 'package:flutter_notes/screens/note_view_screen.dart';
 import 'package:provider/provider.dart';
 import '../utils/constants.dart';
+
 class ListItem extends StatelessWidget {
   final int id;
   final String title;
