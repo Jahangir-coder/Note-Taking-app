@@ -11,7 +11,6 @@ class DatabaseHelper
       return database.execute('CREATE TABLE notes (id INTEGER PRIMARY KEY, title TEXT, content TEXT, imagePath TEXT)');
       }, version: 1);
   }
-
   static Future<List<Map<String, dynamic>>>  getNotesFromDB() async
   {
     final database = await DatabaseHelper.database();
