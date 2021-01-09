@@ -30,26 +30,26 @@ class _NoteEditScreenState extends State {
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: Icon(Icons.arrow_back),
-          color: Colors.black,
+          color: Colors.black45,
         ),
         actions: [
           IconButton(
             icon: Icon(Icons.photo_camera),
-            color: Colors.black,
+            color: Colors.black45,
             onPressed: () {
               getImage(ImageSource.camera);
             },
           ),
           IconButton(
             icon: Icon(Icons.insert_photo),
-            color: Colors.black,
+            color: Colors.black45,
             onPressed: () {
               getImage(ImageSource.gallery);
             },
           ),
           IconButton(
             icon: Icon(Icons.delete),
-            color: Colors.black,
+            color: Colors.black45,
             onPressed: () {
               Navigator.pop(context);
             },
@@ -99,7 +99,7 @@ class _NoteEditScreenState extends State {
                           width: 30.0,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Colors.white,
+                            color: Colors.white38,
                           ),
                           child: InkWell(
                             onTap: () {
@@ -128,7 +128,7 @@ class _NoteEditScreenState extends State {
                 maxLines: null,
                 style: createContent,
                 decoration: InputDecoration(
-                  hintText: 'Enter Text',
+                  hintText: 'Enter Note Text',
                   border: InputBorder.none,
                 ),
               ),
@@ -186,7 +186,7 @@ class _NoteEditScreenState extends State {
               text: TextSpan(
                 style: noNotesStyle,
                 children: [
-                  TextSpan(text: ' There is no note available\nTap on "'),
+                  TextSpan(text: ' There is no note available\nClick on "'),
                   TextSpan(
                       text: '+',
                       style: boldPlus,
@@ -194,7 +194,7 @@ class _NoteEditScreenState extends State {
                         ..onTap = () {
                           goToNoteEditScreen(context);
                         }),
-                  TextSpan(text: '" to add new note'),
+                  TextSpan(text: '" to add any new notes'),
                 ],
               ),
             )

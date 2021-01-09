@@ -1,105 +1,95 @@
 import 'package:flutter/material.dart';
-
-class NoteViewScreen extends StatefulWidget {
-  static const route = '/note-view';
-  @override
-  _NoteViewScreenState createState() => _NoteViewScreenState();
-}
-class _NoteViewScreenState extends State {
+import 'package:flutter_notes/helper/note_provider.dart';
+import 'package:flutter_notes/screens/note_edit_screen.dart';
+import 'package:flutter_notes/screens/note_view_screen.dart';
+import 'package:provider/provider.dart';
+import '../utils/constants.dart';
+class ListItem extends StatelessWidget {
+  final int id;
+  final String title;
+  final String content;
+  final String imagePath;
+  final String date;
+  ListItem({this.id, this.title, this.content, this.imagePath, this.date});
   @override
   Widget build(BuildContext context) {
-    return Container();
-  }
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: white,
-      appBar: AppBar(
-        elevation: 0.7,
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.black,
+    return Container(
+      width: double.infinity,
+      height: 135.0,
+      margin: EdgeInsets.symmetric(horizontal: 14.0, vertical: 10.0),
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, NoteViewScreen.route, arguments: id);
+        },
+        child: Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          decoration: BoxDecoration(
+            color: Colors.white70,
+            boxShadow: shadow,
+            borderRadius: BorderRadius.circular(17.0),
+            border: Border.all(color: Colors.blueGrey, width: 1.2),
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.delete,
-              color: Colors.black,
-            ),
-            onPressed: () => _showDialog(),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                selectedNote?.title,
-                style: viewTitleStyle,
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(
-                    Icons.access_time,
-                    size: 20,
+          child: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
+                        style: itemTitle,
+                      ),
+                      SizedBox(height: 5.0),
+                      Text(
+                        date,
+                        overflow: TextOverflow.ellipsis,
+                        style: itemDateStyle,
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Expanded(
+                        child: Text(
+                          content,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: itemContentStyle,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Text('${selectedNote?.date}')
-              ],
-            ),
-            if (selectedNote.imagePath != null)
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Image.file(File(selectedNote.imagePath)),
               ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                selectedNote.content,
-                style: viewContentStyle,
-              ),
-            ),
-          ],
+              if(imagePath!=null)
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 14.0,
+                    ),
+                    Container(
+                      width: 85.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14.0),
+                        image: DecorationImage(
+                          image: FileImage(
+                            File(imagePath),
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, NoteEditScreen.route,
-              arguments: selectedNote.id);
-        },
-        child: Icon(Icons.edit),
-      ),
     );
-  }
-  _showDialog() {
-    showDialog(
-        context: this.context,
-        builder: (context) {
-          return DeletePopUp(selectedNote: selectedNote);
-        });
-  }
-}
-}
-class _NoteViewScreenState extends State {
-  Note selectedNote;
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final id = ModalRoute.of(context).settings.arguments;
-    final provider = Provider.of<NoteProvider>(context);
-    if (provider.getNote(id) != null) {
-      selectedNote = provider.getNote(id);
-    }
-  }
+
 }

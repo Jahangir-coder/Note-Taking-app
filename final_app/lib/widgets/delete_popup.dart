@@ -19,7 +19,7 @@ class DeletePopUp extends StatelessWidget {
           child: Text('Yes'),
           onPressed: () {
             Provider.of<NoteProvider>(context, listen: false)
-                .deleteNote(selectedNote.id);
+                .deleteNote(selectedNote.id);(selectedNote.id);
             Navigator.popUntil(context, ModalRoute.withName('/'));
           },
         ),

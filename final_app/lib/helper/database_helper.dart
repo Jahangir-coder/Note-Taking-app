@@ -27,4 +27,5 @@ class DatabaseHelper
     final database = await DatabaseHelper.database();
     return database.delete('notes', where: 'id = ?', whereArgs: [id]);
   }
+
 }
